@@ -1,0 +1,23 @@
+<%%- include('./src/controllers/includes/head.ejs') %>
+
+<body>
+
+    <%%- include('./src/controllers/includes/navigation.ejs') %>
+
+    <main class="add-product--container container">
+        <%% if( errorMessage ) { %>
+
+            <div><%%= errorMessage %></div>
+
+        <%% } %>
+        <form class="row login-form" action="/reset" method="POST">
+            <div class="product-form form-group">
+                <label for='email'>Email</label>
+                <input class="form-control" type="email" name="email" id='email'>
+            </div>
+            <input type="hidden" name="_csrf" value="<%%= csrfToken %>">
+            <button type="submit">Reset password</button>
+        </form>
+    </main>
+</body>
+</html>
